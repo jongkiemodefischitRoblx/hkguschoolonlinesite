@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dashboard - HKGU</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h2 style="text-align:center;margin-top:50px;">Selamat Datang, <span id="username"></span></h2>
+<p style="text-align:center;">Level Kamu: <span id="level"></span></p>
+
+<div style="display:flex;justify-content:center;flex-wrap:wrap;margin-top:40px;">
+<div class="card" onclick="go('class-hacker.html')">⚡ Hackers Class</div>
+<div class="card" onclick="go('class-normal.html')">📘 GuruNormals</div>
+<div class="card" onclick="go('learn.html')">📚 Roadmap Belajar</div>
+<div class="card" onclick="nextLevel()">⬆ Naik Level</div>
+<div class="card" onclick="go('certificate.html')">🎖 Sertifikat</div>
+</div>
+
+<script src="app.js"></script>
+<script>
+document.getElementById("username").innerText = localStorage.getItem("userName");
+document.getElementById("level").innerText = getLevel();
+</script>
+</body>
+  </html>
