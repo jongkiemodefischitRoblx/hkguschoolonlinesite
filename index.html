@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HKGU SCHOOL</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header style="text-align:center;padding:80px;">
+<h1 style="font-size:40px;font-weight:900;color:#00eaff;text-shadow:0 0 15px #7b00ff;">HKGU SCHOOL</h1>
+<p style="font-size:18px;margin-top:10px;">Belajar Cybersecurity & Pendidikan Umum Bareng AI Guru</p>
+<button class="btn" onclick="login()">Sign in with Google</button>
+</header>
+
+<script src="app.js"></script>
+<script>
+function login(){
+  let name = prompt("Masukkan Nama:");
+  if(name){
+    localStorage.setItem("userName",name);
+    window.location="dashboard.html";
+  }
+}
+</script>
+</body>
+</html>
