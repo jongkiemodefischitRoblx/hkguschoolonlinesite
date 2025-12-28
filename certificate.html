@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sertifikat Kelulusan</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<audio id="farewellMusic" autoplay loop>
+<source src="https://files.catbox.moe/2nu1rf.mp3" type="audio/mpeg">
+</audio>
+
+<div class="certificate-box" id="certificate-box">
+<h1 class="gold-title">🎉 Sertifikat Kelulusan</h1>
+<h3>HKGU SCHOOL – Hackers & AI Academy</h3>
+<h2 id="name">Siswa Hebat</h2>
+<p>Telah resmi menyelesaikan Level 1-10 kelas</p>
+<h3 style="color:#0077ff">Cybersecurity Ethical & Education</h3>
+<p>Dengan penuh dedikasi dan semangat belajar.</p>
+<p><i>Semoga ilmu ini menjadi bekal masa depanmu 🔥</i></p>
+<h4>Academy AI Guru</h4>
+<p style="font-size:14px;">Diberikan pada: <span id="date"></span></p>
+</div>
+
+<div style="text-align:center;margin-top:20px;">
+<button class="btn" onclick="downloadPDF()">Download PDF</button>
+</div>
+
+<script>
+document.getElementById("name").innerText=localStorage.getItem("userName")||"Siswa Hebat";
+document.getElementById("date").innerText=new Date().toLocaleDateString();
+
+function downloadPDF(){
+    html2canvas(document.getElementById("certificate-box")).then(canvas=>{
+        const imgData = canvas.toDataURL("image/png");
+        const pdf = new jspdf.jsPDF('l','mm',[210,297]);
+        pdf.addImage(imgData,'PNG',10,10,277,190);
+        pdf.save(`${localStorage.getItem("userName")}_certificate.pdf`);
+    });
+}
+</script>
+</body>
+</html>
