@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Guru Hacker AI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h2 style="text-align:center;margin-top:40px;">⚡ Guru Hacker AI</h2>
+
+<div class="chat-box" id="chat-box"></div>
+<textarea id="msg" placeholder="Tanyakan soal cyber security..."></textarea><br>
+<button class="btn" onclick="sendMsg()">Kirim</button>
+
+<script>
+const KEY="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"; // masukkan key kamu
+async function sendMsg(){
+    let q=document.getElementById("msg").value;
+    if(!q) return;
+    addMsg(q,true);document.getElementById("msg").value="";
+    let prompt=await fetch("promptguruhacker.txt").then(r=>r.text());
+    let res=await fetch("https://openrouter.ai/api/v1/chat/completions",{
+        method:"POST",
+        headers:{"Authorization":"Bearer "+KEY,"Content-Type":"application/json"},
+        body:JSON.stringify({model:"deepseek-chat",messages:[{role:"system",content:prompt},{role:"user",content:q}]})
+    }).then(r=>r.json());
+    addMsg(res.choices[0].message.content,false);
+}
+
+function addMsg(msg,isUser){
+    let box=document.getElementById("chat-box");
+    let p=document.createElement("p");
+    p.className=isUser?"msg-user":"msg-ai";
+    p.innerText=msg;
+    box.appendChild(p);
+    box.scrollTop=box.scrollHeight;
+}
+</script>
+</body>
+</html>
