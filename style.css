@@ -1,0 +1,59 @@
+/* HKGU SCHOOL Premium Edition - Glass + Neon + Cyber Grid */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth;}
+body{background:#020409;color:#fff;overflow-x:hidden;}
+
+/* Glass Cards */
+.card{
+  background:rgba(255,255,255,.05);
+  backdrop-filter:blur(15px);
+  border:1px solid #ffffff22;
+  padding:22px;
+  border-radius:14px;
+  transition:.3s;
+  cursor:pointer;
+}
+.card:hover{
+  border-color:#00eaff;
+  box-shadow:0 0 20px #00eaff55;
+  transform:translateY(-3px);
+}
+
+/* Buttons */
+.btn{
+  background:#00eaff;color:#000;font-weight:700;padding:14px 28px;
+  border-radius:10px;cursor:pointer;border:none;transition:.25s;
+}
+.btn:hover{
+  background:#7b00ff;
+  box-shadow:0 0 15px #7b00ff;color:#fff;
+}
+
+/* Input & textarea */
+textarea,input{
+  background:#0b1320;border:1px solid #00eaff55;color:#00eaff;
+  padding:10px;border-radius:8px;width:90%;
+}
+
+/* Chat bubbles */
+.msg-ai,.msg-user{
+  max-width:70%;padding:12px 16px;margin:10px;border-radius:12px;white-space:pre-wrap;line-height:1.5;
+}
+.msg-ai{background:#041c2e;border-left:4px solid #00eaff;color:#d4faff;box-shadow:0 0 10px #00eaff33;}
+.msg-user{background:#240041;border-right:4px solid #9d00ff;margin-left:auto;text-align:right;color:#fce8ff;}
+
+/* Certificate */
+.certificate-box{
+  width:850px;margin:auto;background:white;color:black;
+  padding:50px;border-radius:18px;border:4px solid gold;box-shadow:0 0 25px gold;text-align:center;
+}
+.gold-title{
+  font-size:32px;font-weight:900;color:#d4b400;text-shadow:0 0 10px gold;
+}
+
+/* Responsive */
+@media(max-width:600px){
+  .certificate-box{width:97%;padding:30px;}
+  .msg-ai,.msg-user{max-width:90%;}
+}
